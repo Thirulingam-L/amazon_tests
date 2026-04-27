@@ -1,0 +1,5 @@
+pytest
+pytest-html
+playwright
+requests        # for API calls
+python-dotenv   # for environment variables
