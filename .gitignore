@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+.env/
+
+# Playwright test artifacts
+playwright-report/
+test-results/
+*.zip
+
+# Pytest cache
+.pytest_cache/
+
+# Logs
+*.log
+
+# Reports
+report.html
+
+# VS Code settings
+.vscode/
