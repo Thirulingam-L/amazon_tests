@@ -17,7 +17,7 @@ def test_product_search(home, product, page):
     page.wait_for_load_state("load")
     assert product.add_to_cart_button().is_visible(), "Add to Cart button not found"
     assert product.product_title().inner_text().strip() != "", "Product title is missing"
-    assert product.product_price().inner_text().strip() != "", "Product price is missing"
+    assert product.product_price().first.inner_text().strip() != "", "Product price is missing"
 
 def test_pagination(product, page):
     page.go_back()
