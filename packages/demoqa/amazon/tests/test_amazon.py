@@ -1,6 +1,14 @@
 def test_amazon_title(home, page):
     home.goto()
-    page.wait_for_selector("input#twotabsearchtextbox")
+     # Handle cookie consent banner if present
+    if page.locator("input#sp-cc-accept").is_visible():
+        page.locator("input#sp-cc-accept").click()
+
+    # Handle region/language popup if present
+    if page.locator("button[name='glowDoneButton']").is_visible():
+        page.locator("button[name='glowDoneButton']").click()
+
+    page.wait_for_selector("input#twotabsearchtextbox", timeout=15000)
     title = page.title()
     assert "Amazon" in title
 
