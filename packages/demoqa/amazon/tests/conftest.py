@@ -6,7 +6,7 @@ pytest_plugins = ["src.fixtures.amazon_fixtures"]
 @pytest.fixture(scope="session")
 def browser():
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=False, slow_mo= 1000)
+    browser = playwright.chromium.launch(headless=True)
     yield browser
     browser.close()
     playwright.stop()
