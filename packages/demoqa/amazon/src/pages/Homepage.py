@@ -8,10 +8,10 @@ class Homepage:
         self.page.goto("https://www.amazon.com")
         self.page.wait_for_timeout(3000)
 
-        self.page.screenshot(path="ci_debug.png")
+        self.page.screenshot(path="screenshots/ci_debug.png")
         print("URL:", self.page.url)
         print("TITLE:", self.page.title())
-        
+
          # Handle cookie consent banner if present
         if self.page.locator("input#sp-cc-accept").count() > 0:
             self.page.locator("input#sp-cc-accept").click()
