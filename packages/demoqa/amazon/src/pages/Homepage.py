@@ -6,13 +6,12 @@ class Homepage:
 
     def goto(self):
         self.page.goto("https://www.amazon.com")
-        self.page.wait_for_timeout(3000)
+        
+        # Handle "Continue shopping" blocker
+        if self.page.locator("input[value='Continue shopping']").count() > 0:
+            self.page.locator("input[value='Continue shopping']").click()
 
-        self.page.screenshot(path="screenshots/ci_debug.png")
-        print("URL:", self.page.url)
-        print("TITLE:", self.page.title())
-
-         # Handle cookie consent banner if present
+        # Handle cookie consent banner if present
         if self.page.locator("input#sp-cc-accept").count() > 0:
             self.page.locator("input#sp-cc-accept").click()
 
