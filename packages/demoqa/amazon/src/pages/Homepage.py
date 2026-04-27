@@ -6,6 +6,7 @@ class Homepage:
 
     def goto(self):
         self.page.goto("https://www.amazon.com")
+        self.page.wait_for_timeout(3000)
          # Handle cookie consent banner if present
         if self.page.locator("input#sp-cc-accept").count() > 0:
             self.page.locator("input#sp-cc-accept").click()

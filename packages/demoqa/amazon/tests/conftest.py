@@ -7,6 +7,7 @@ pytest_plugins = ["src.fixtures.amazon_fixtures"]
 def browser():
     playwright = sync_playwright().start()
     browser = playwright.chromium.launch(headless=True)
+    args=["--disable-blink-features=AutomationControlled"]
     yield browser
     browser.close()
     playwright.stop()
