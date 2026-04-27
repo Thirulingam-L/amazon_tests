@@ -1,18 +1,28 @@
-from src.fixtures.amazon_fixtures import *
 import pytest
 from playwright.sync_api import sync_playwright
+
+pytest_plugins = ["src.fixtures.amazon_fixtures"]
 
 @pytest.fixture(scope="session")
 def browser():
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=True)
+    browser = playwright.chromium.launch(headless=False, slow_mo= 1000)
     yield browser
     browser.close()
     playwright.stop()
 
+
 @pytest.fixture(scope="session")
-def page(browser):
-    context = browser.new_context()
+def context(browser):
+    context = browser.new_context(
+        
+    )
+    yield context
+    context.close()
+
+
+@pytest.fixture(scope="session")
+def page(context):
     page = context.new_page()
     yield page
-    context.close()
+    page.close()

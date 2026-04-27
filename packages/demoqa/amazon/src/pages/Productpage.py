@@ -1,4 +1,4 @@
-class ProductPage:
+class Productpage:
     def __init__(self, page):
         self.page = page
 

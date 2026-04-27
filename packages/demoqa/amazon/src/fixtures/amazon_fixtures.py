@@ -1,10 +1,15 @@
 import pytest
-from src.pages.Homepage import AmazonHomePage
-from src.pages.Productpage import ProductPage
+from src.pages.Homepage import Homepage
+from src.pages.Productpage import Productpage
+from src.flows.amazon_flow import AmazonFlow
 @pytest.fixture
 def home(page):
-    return AmazonHomePage(page)
+    return Homepage(page)
 
 @pytest.fixture
 def product(page):
-    return ProductPage(page)
+    return Productpage(page)
+
+@pytest.fixture
+def flow(page, home, product):
+    return AmazonFlow(page, home, product)

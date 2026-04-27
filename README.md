@@ -15,7 +15,8 @@ packages/
     └── amazon/
         ├── src/  
             ├── pages/      # Page Objects and helper classes
-            ├── fixtures/    # Pytest fixtures
+            ├── fixtures/   # Pytest fixtures
+            ├── flows/      # User Flow
         ├── tests/       # Test cases
         └── pytest.ini   # Pytest configuration
 README.md
